@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "name": "m_apptuto",
+    "slug": "m_apptuto",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "9d6d9982-f4b8-446e-a928-66e98a035cca"
+      }
+    },
+    "android": {
+      "package": "com.kallifa12.m_apptuto"
+    }
+  }
+}
