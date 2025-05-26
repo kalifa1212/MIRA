@@ -12,7 +12,6 @@ const Home = () => {
     const item = "G";
   
     const renderItem = ({ item }) => {
-      //if (item.key === 'welcome') return <Welcome />;
       if (item.key === 'predication') return <Predication />;
       if (item.key === 'mosque') return <Mosque />;
     };

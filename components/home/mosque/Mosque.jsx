@@ -14,8 +14,10 @@ const Mosque=()=> {
   const [data, setData] = useState([]);
   const [isloading, setIsloading] = useState(true);
   const [error, setError] = useState(null);
-  const config = new Configuration({});
-  const mosqueController = new MosqueControllerApi(config,config.basePath,axiosInterceptor);
+  const config = new Configuration({
+    basePath: 'http://192.168.150.102:8080',
+  });
+  const mosqueController = new MosqueControllerApi(config,axiosInterceptor);
   const router=useRouter();
   const mosque="Mosquée";
 
@@ -23,7 +25,7 @@ const Mosque=()=> {
     mosqueController.countAll()
     .then(rest =>{console.log(rest.data)})
     .catch(err=>{
-      console.log(err)
+      console.log("mosque** ",err)
     })
     mosqueController.findAll2()
       .then(res => {
@@ -33,11 +35,14 @@ const Mosque=()=> {
       .catch(err => {
         setError(err);
         setIsloading(false);
+        console.log('❌ Erreur Axios :');
+        console.log('Config- :', err.config.url);
+        console.log("mosquen -- ",err)
       });
   }, []);
 
-  if (isloading) return <div>Chargement...</div>;
-  if (error) return <div>Erreur: {error.message}</div>;
+  if (isloading) return <Text>Chargement...</Text>;
+  if (error) return <Text>Erreur: {error.message}</Text>;
 
   return (
     <View style={styles.container}>

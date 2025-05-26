@@ -1,8 +1,8 @@
-import {Stack} from 'expo-router';
+import {Stack,router,SplashScreen,} from 'expo-router';
 import { useFonts } from 'expo-font';
 import { useEffect, useCallback, useState } from "react";
-import * as SplashScreen from "expo-splash-screen";
-import * as Font from "expo-font";
+//import * as SplashScreen from "expo-splash-screen";
+//import * as Font from "expo-font";
 import { View } from "react-native";
 
 SplashScreen.preventAutoHideAsync();
@@ -20,6 +20,7 @@ const Layout = () => {
       async function loadResourcesAndDataAsync() {
         try {
           await new Promise(resolve => setTimeout(resolve, 2000));
+          router.replace('/auth/login');
         } catch (e) {
           console.warn(e);
         } finally {

@@ -9,8 +9,6 @@ const useFetch = (endpoint,query,find) => {
     const [data,setData]=useState([]);
     const [isloading,setIsloading]=useState(false);
     const [error,setError]= useState(null);
-    //const BearerKey="eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcxMTIyNTQ5MywiaWF0IjoxNzExMTg5NDkzfQ.KCc_HCYPUGRVSbjCI23lY7R_jcrYAors6EBfga76WgY";
-    //console.log('test num 1',isloading);
     const options={
         method:'GET',
         url:`http://${ipAdresse}:8080/muslimApi/v1/${endpoint}`,

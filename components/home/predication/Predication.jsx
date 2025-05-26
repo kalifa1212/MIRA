@@ -20,11 +20,7 @@ const Predication=()=> {
         taille:4,
       }
     )
-    // Testing local data
-    // const isloading=false;
-    // const error="";
-    // const data = preddicationData.content;
-    //console.log("test donnee",data);
+   
     return (
       <View style={styles.container}>
         <View style={styles.header}>
