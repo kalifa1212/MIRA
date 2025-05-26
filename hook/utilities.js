@@ -4,9 +4,10 @@ import axios from "axios";
 
 const utilities = () => {
 
-    const BearerKey="eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTczOTQwMjI2MiwiaWF0IjoxNzM5MzY2MjYyfQ.9seOL8iYxoqyynAma73wymAbqo26NE8ra_FuCYD5KMw";
+    const BearerKey="eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc0ODY2NjI5OSwiaWF0IjoxNzQ4MDYxNDk5fQ.Mn1ltEnyv6tupoeL4Zs0-3jtKUA-zejBbd6ZvlQQZwY";
     const ipAdresse="localhost";
 
     return {BearerKey,ipAdresse};
 }
 export default utilities
+// npx expo start --dev-client=false

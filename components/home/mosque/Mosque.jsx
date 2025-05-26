@@ -1,22 +1,43 @@
-import React, { Component, useState } from 'react';
+import React, { useEffect,Component, useState } from 'react';
 import { View ,Text,TouchableOpacity,FlatList,ActivityIndicator } from 'react-native';
 import { useRouter } from 'expo-router';
 import styles from './mosque.style';
 import { COLORS } from '../../../constants';
 import useFetch from '../../../hook/useFetch';
 import MosqueCard from '../../common/cards/mosque/MosqueCard';
+import { MosqueControllerApi,Configuration } from '../../../hook/rn-client';
+import axiosInterceptor from '../../../app/services';
 
 
 const Mosque=()=> {
 
+  const [data, setData] = useState([]);
+  const [isloading, setIsloading] = useState(true);
+  const [error, setError] = useState(null);
+  const config = new Configuration({});
+  const mosqueController = new MosqueControllerApi(config,config.basePath,axiosInterceptor);
   const router=useRouter();
   const mosque="Mosquée";
-  const {data,isloading,error}=useFetch(
-    'mosque/find/all/',{
-      taille:2,
-    }
-  )
-  //console.log(error);
+
+  useEffect(() => {
+    mosqueController.countAll()
+    .then(rest =>{console.log(rest.data)})
+    .catch(err=>{
+      console.log(err)
+    })
+    mosqueController.findAll2()
+      .then(res => {
+        setData(res.data.content); // ou res.data selon ta réponse
+        setIsloading(false);
+      })
+      .catch(err => {
+        setError(err);
+        setIsloading(false);
+      });
+  }, []);
+
+  if (isloading) return <div>Chargement...</div>;
+  if (error) return <div>Erreur: {error.message}</div>;
 
   return (
     <View style={styles.container}>

@@ -5,7 +5,7 @@ import styles from './predication.style';
 import {COLORS,SIZES} from '../../../constants';
 import PredicationCard from '../../common/cards/predication/PredicationCard';
 import useFetch from '../../../hook/useFetch';
-
+import preddicationData from '../../../assets/Data/Predication.json'
 
 const Predication=()=> {
 
@@ -20,6 +20,10 @@ const Predication=()=> {
         taille:4,
       }
     )
+    // Testing local data
+    // const isloading=false;
+    // const error="";
+    // const data = preddicationData.content;
     //console.log("test donnee",data);
     return (
       <View style={styles.container}>
